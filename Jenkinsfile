@@ -47,12 +47,12 @@ pipeline{
                }
             }
         }
-        /*stage('Static code analysis: Sonarqube'){
+        stage('Static code analysis: Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
                script{
                    
-                   def SonarQubecredentialsId = 'sonarqube-api'
+                   def SonarQubecredentialsId = 'credentialsId'
                    statiCodeAnalysis(SonarQubecredentialsId)
                }
             }
@@ -62,7 +62,7 @@ pipeline{
             steps{
                script{
                    
-                   def SonarQubecredentialsId = 'sonarqube-api'
+                   def SonarQubecredentialsId = 'credentialsId'
                    QualityGateStatus(SonarQubecredentialsId)
                }
             }
@@ -76,7 +76,7 @@ pipeline{
                }
             }
         }
-        stage('Docker Image Build'){
+        /*stage('Docker Image Build'){
          when { expression {  params.action == 'create' } }
             steps{
                script{
